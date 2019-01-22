@@ -85,22 +85,7 @@ class SearchAppBar extends Component {
     
   }
 
-  handleInputChange = (e) => {
-    this.setState({url: e.target.value});
-    console.log(e.target.value)
-    console.log(this.state)
-    }
-
- handleClick = () => {
-    axios.post("http://127.0.0.1:8900/search",
-     this.state)
-    .then(res => {
-      if (res.status === 'success'){
-        this.setState({image: res.image})
-      }
-      console.log(res)
-    })
-    }
+ 
 
 render () {
     const { classes } = this.props;
@@ -126,12 +111,12 @@ render () {
                 input: classes.inputInput,
               }}
               
-              onChange={this.handleInputChange}
+              onChange={this.props.handleinput}
              />
              
           </div>
           <Button variant="contained" color="primary" className={classes.button}
-               type="submit" style={{margin: 50}} onClick={this.handleClick}>
+               type="submit" style={{margin: 50}} onClick={this.props.handleclick}>
                  Send
              </Button>
         </Toolbar>
